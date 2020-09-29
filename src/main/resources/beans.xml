@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="httpProcessor" class="uk.ac.ucl.processor.HttpProcessor" scope="prototype"/>
+    <bean id="applicationRequestDispatcher"
+          class="uk.ac.ucl.processor.ApplicationRequestDispatcher" scope="prototype"/>
+
+    <bean id="warFileMonitor" class="uk.ac.ucl.util.monitor.WarFileMonitor" scope="prototype">
+    </bean>
+
+    <bean id="applicationFilterChain" class="uk.ac.ucl.filter.ApplicationFilterChain" scope="prototype"/>
+    <bean id="contextHolder" class="uk.ac.ucl.util.ApplicationContextHolder"/>
+    <context:component-scan
+            base-package="uk.ac.ucl.catalina, uk.ac.ucl.module,
+            uk.ac.ucl.context, uk.ac.ucl.util"/>
+
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
+</beans>

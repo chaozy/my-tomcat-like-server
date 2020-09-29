@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+        </Console>
+        <RollingFile name="basicFile" filename="logs/catalina-${date:yyyy-MM-dd}.log"
+            filePattern="logs/catalina-%d{MM-dd-yyyy}.log">
+            <PatternLayout>
+                <Pattern>%d{dd-MM-yyyy' 'HH:mm:ss} %p %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="1 MB" />
+            </Policies>
+        </RollingFile>
+
+        <RollingFile name="requestFile" filename="logs/requestingInfo-${date:yyyy-MM-dd}.log"
+                     filePattern="logs/requestingInfo-%d{MM-dd-yyyy}.log">
+            <PatternLayout>
+                <Pattern>%d{dd-MM-yyyy' 'HH:mm:ss} %p %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="1 MB" />
+            </Policies>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Logger name="uk.ac.ucl.catalina.request.Request" level="info" additivity="false">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="requestFile" />
+        </Logger>
+        <Root level="info">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="basicFile" />
+        </Root>
+    </Loggers>
+</Configuration>

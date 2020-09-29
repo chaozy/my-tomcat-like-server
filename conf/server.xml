@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Server>
+    <Service name="Catalina">
+        <Connector port="18081"
+         compression="on"
+         compressionMinSize="10"
+         noCompressionUserAgent="xxx"
+         compressionMimeType="text/html, text/xml, text/javascript, text/css, text/plain, text/json"
+        />
+        <Connector port="18080"/>
+        <Connector port="18082"/>
+        <Engine defaultHost="localhost">
+            <Host name="localhost">
+            <Context path="/a/index.html"
+                     docBase="/Users/chaozy/Desktop/CS/projects/java/TomcatDIY/src/main/webapp/a/" />
+            <Context path="/example"
+                     docBase="/Users/chaozy/Desktop/example/web"
+                     reloadable="true"/>
+            </Host>
+        </Engine>
+    </Service>
+</Server>
