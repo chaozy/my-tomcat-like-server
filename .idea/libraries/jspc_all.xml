@@ -1,8 +1,6 @@
 <component name="libraryTable">
   <library name="jspc_all">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/jspc_all.jar!/" />
-    </CLASSES>
+    <CLASSES />
     <JAVADOC />
     <SOURCES />
   </library>
