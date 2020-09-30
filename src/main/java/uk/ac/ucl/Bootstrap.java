@@ -30,7 +30,6 @@ public class Bootstrap {
         Thread.currentThread().setContextClassLoader(commonClassLoader);
 
         Class<?> serverClass = commonClassLoader.loadClass(initialClassName);
-        System.out.println(serverClass.getClassLoader());
         Constructor<?> constructor = serverClass.getConstructor();
         Object serverObject = constructor.newInstance();
         Method m = serverClass.getMethod(initialMethodName);

@@ -28,21 +28,18 @@ public class Connector implements Runnable {
 
     /**
      * In order to create tomcat-style log
+     * @param port : this arugment is used by AOP
      */
     public void init(int port) {
-        System.out.println(this.getClass().getClassLoader());
-        //LogManager.getLogger().info("Initializing ProtocolHandler [http-bio-{}]", port);
     }
 
-    public void start() {
-        LogManager.getLogger().info("Starting ProtocolHandler [http-bio-{}]", port);
+    public void start(int port) {
         new Thread(this).start();
     }
 
     @Override
     public void run() {
         try {
-            System.out.println(port);
             ServerSocket ss = new ServerSocket(port);
             // Start waiting for requests
             while (true) {

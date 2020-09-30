@@ -18,6 +18,6 @@
             base-package="uk.ac.ucl.catalina, uk.ac.ucl.module,
             uk.ac.ucl.context, uk.ac.ucl.util"/>
 
-    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
 
 </beans>

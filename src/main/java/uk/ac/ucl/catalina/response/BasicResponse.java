@@ -8,6 +8,7 @@ import java.io.PrintWriter;
 import java.util.Collection;
 import java.util.Locale;
 
+@SuppressWarnings("deprecation")
 public class BasicResponse implements HttpServletResponse {
     @Override
     public void addCookie(Cookie cookie) {
@@ -144,6 +145,10 @@ public class BasicResponse implements HttpServletResponse {
 
     }
 
+    @Override
+    public void setContentLengthLong(long l) {
+
+    }
 
 
     @Override

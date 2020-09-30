@@ -32,7 +32,7 @@ public class Service {
         init();
         // Each connector will start to listen for connection signals
         for (Connector connector : connectors) {
-            connector.start();
+            connector.start(connector.getPort());
         }
     }
 

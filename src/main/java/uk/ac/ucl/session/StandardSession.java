@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSessionContext;
 import java.util.*;
 
 @Getter@Setter
+@SuppressWarnings("deprecation")
 public class StandardSession implements HttpSession {
     private Map<String, Object> attributeMap;
     private String id;

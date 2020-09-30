@@ -109,13 +109,8 @@ public class Context {
     }
 
     private void deploy() throws IOException {
-        TimeUtil timeUtil = new TimeUtil();
-        LogManager.getLogger().info(
-                "Deploying web application directory {}", this.docBase);
         loadListeners();
-        init();
-        LogManager.getLogger().info("Deployment of web application directory {}" +
-                " has finished at {} ms", this.docBase, timeUtil.interval());
+        init(this.docBase);
 
         if (reloadable){
             fileChangeMonitor = new FileChangeMonitor(Paths.get(this.getDocBase() + "/"), this);
@@ -126,8 +121,12 @@ public class Context {
         new JspRuntimeContext(servletContext, jspc);
     }
 
-    private void init() {
-        if (!webXMLFile.exists()) { return; }
+    /**
+     * Process preparation, such paring the servlet mapping
+     * @param docBase :this parameters is passed for AOP
+     */
+    public void init(String docBase) {
+        if (!webXMLFile.exists()) return ;
         try {
             checkDuplicate();
         } catch (WebConfigDuplicateException e) {
