@@ -41,6 +41,7 @@ public class DefaultServlet extends HttpServlet {
             // If the welcome file ends with jsp, the JspServlet will takeover the job
 
             else if (uri.endsWith(".jsp")) {
+
                 JspServlet jspServlet = ApplicationContextHolder.getBean("jspServlet");
                 jspServlet.service(request, response);
                 return ;

@@ -1,6 +1,5 @@
 package uk.ac.ucl.classLoader;
 
-import org.apache.logging.log4j.LogManager;
 import uk.ac.ucl.context.Context;
 import uk.ac.ucl.util.Constant;
 import uk.ac.ucl.util.core.StrUtil;

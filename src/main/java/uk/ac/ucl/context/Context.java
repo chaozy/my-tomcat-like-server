@@ -2,8 +2,6 @@ package uk.ac.ucl.context;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.apache.jasper.JspC;
-import org.apache.jasper.compiler.JspRuntimeContext;
 import org.apache.logging.log4j.LogManager;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -116,9 +114,6 @@ public class Context {
             fileChangeMonitor = new FileChangeMonitor(Paths.get(this.getDocBase() + "/"), this);
             new Thread(fileChangeMonitor).start();
         }
-
-        JspC jspc = new JspC();
-        new JspRuntimeContext(servletContext, jspc);
     }
 
     /**

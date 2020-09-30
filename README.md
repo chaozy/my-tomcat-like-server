@@ -18,7 +18,8 @@ The chinese book [Tomcat架构解析](https://book.douban.com/subject/27034717/)
 
 Besides these three materials, there are a lot of other online resources that help me finishing this project, espcially stackoverflow😊
 
-## USAGE
+## HOW to START
+First compile the whole project. One important thing is that there is a library named `jspc_all.jar` in `/lib` has to be imported manually. This is a component of the source code of Apache Tomcat. I cound not find the maven dependency for it.
 
 The project follows the launching structure of Apache Tomcat. Executing the `startup.sh` in the root folder launches the server on three ports `18080, 18081, 18082`(configured in `/lib/server.xml`)
 
